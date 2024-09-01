@@ -20,12 +20,10 @@ public class BaseTest {
         RestAssured.baseURI = "https://demoqa.com/";
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
-        //Configuration.browser = System.getProperty("browser", "chrome");
-        //Configuration.browserSize = System.getProperty("size", "1920x1080");
-        Configuration.browserSize = "1920x1080";
-        //Configuration.browserVersion = System.getProperty("version","121");
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
-        //Configuration.remote = "https://user1:1234@"+System.getProperty("selenoid","selenoid.autotests.cloud")+"/wd/hub";
+        Configuration.browser = System.getProperty("browser", "chrome");
+        Configuration.browserSize = System.getProperty("size", "1920x1080");
+        Configuration.browserVersion = System.getProperty("version","121");
+        Configuration.remote = System.getProperty("remoteUrl");
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
