@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 public class ProfilePage {
-    SelenideElement emptyList = $(".rt-noData"),
+    private SelenideElement emptyList = $(".rt-noData"),
             userName = $("#userName-value"),
             tableItem = $(".rt-tbody"),
             deleteButton = $("#delete-record-undefined"),
@@ -39,7 +39,7 @@ public class ProfilePage {
 
     @Step("проверка наличия книг в UI")
     public void  checkAddedBookUI() {
-        tableItem.shouldNotBe(empty);
+        tableItem.shouldHave(text("Addy Osmani"));
     }
 
     @Step("Удаление книги из списка")

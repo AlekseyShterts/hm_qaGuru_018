@@ -16,9 +16,9 @@ public class WorkWithBooksSteps {
     String userID = AuthSteps.extractValueFromCookieString("userID");
 
     @Step("Добавление книги в профиль")
-    public void addBookAPI(String isbn) {
+    public void addBookAPI() {
         bookData.userId = userID;
-
+        bookData.setIsbn(data.isbn);
         given(requestSpecification)
                 .header("authorization", "Bearer " + token)
                 .body(bookData)

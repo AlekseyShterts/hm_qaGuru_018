@@ -12,14 +12,13 @@ public class DeleteBookTest extends BaseTest {
     @Test
     @WithLogin
     @DisplayName("Проверка удаления книг из профиля")
-    @Tag("smoke")
+    @Tag("Smoke")
     void addedDeletedItemTest() {
         WorkWithBooksSteps booksSteps = new WorkWithBooksSteps();
         ProfilePage page = new ProfilePage();
-        DataTest data = new DataTest();
 
         booksSteps.deleteAllBookAPI();
-        booksSteps.addBookAPI(data.isbn);
+        booksSteps.addBookAPI();
         page.openPageUI();
         page.checkUserNameUI();
         page.checkAddedBookUI();
