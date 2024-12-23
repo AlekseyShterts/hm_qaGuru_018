@@ -16,9 +16,10 @@ public class DeleteBookTest extends BaseTest {
     void addedDeletedItemTest() {
         WorkWithBooksSteps booksSteps = new WorkWithBooksSteps();
         ProfilePage page = new ProfilePage();
+        DataTest data = new DataTest();
 
         booksSteps.deleteAllBookAPI();
-        booksSteps.addBookAPI();
+        booksSteps.addBookAPI(data.isbn);
         page.openPageUI();
         page.checkUserNameUI();
         page.checkAddedBookUI();

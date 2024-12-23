@@ -16,9 +16,9 @@ public class WorkWithBooksSteps {
     String userID = AuthSteps.extractValueFromCookieString("userID");
 
     @Step("Добавление книги в профиль")
-    public void addBookAPI() {
+    public void addBookAPI(String value) {
         bookData.userId = userID;
-        bookData.setIsbn(data.isbn);
+        bookData.setIsbn(value);
         given(requestSpecification)
                 .header("authorization", "Bearer " + token)
                 .body(bookData)
@@ -31,7 +31,6 @@ public class WorkWithBooksSteps {
     @Step("Удаление всех книг из профиля")
     public void deleteAllBookAPI() {
         bookData.userId = userID;
-        bookData.setIsbn(data.isbn);
         given(requestSpecification)
                 .header("authorization", "Bearer " + token)
                 .queryParams("UserId", userID)
