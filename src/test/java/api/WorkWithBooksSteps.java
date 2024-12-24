@@ -1,6 +1,5 @@
 package api;
 
-import data.DataForTest;
 import io.qameta.allure.Step;
 import models.AddBookBodyModel;
 
@@ -16,7 +15,6 @@ public class WorkWithBooksSteps {
 
     @Step("Добавление книги в профиль")
     public void addBookAPI(String value) {
-        bookData.userId = userID;
         bookData.setIsbn(value);
         given(requestSpecification)
                 .header("authorization", "Bearer " + token)
@@ -29,7 +27,6 @@ public class WorkWithBooksSteps {
 
     @Step("Удаление всех книг из профиля")
     public void deleteAllBookAPI() {
-        bookData.userId = userID;
         given(requestSpecification)
                 .header("authorization", "Bearer " + token)
                 .queryParams("UserId", userID)

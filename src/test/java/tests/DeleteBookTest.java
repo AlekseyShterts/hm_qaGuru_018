@@ -1,6 +1,6 @@
 package tests;
 
-import data.DataForTest;
+import data.BookData;
 import helpers.WithLogin;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.Test;
@@ -16,7 +16,7 @@ public class DeleteBookTest extends BaseTest {
     void addedDeletedItemTest() {
         WorkWithBooksSteps booksSteps = new WorkWithBooksSteps();
         ProfilePage page = new ProfilePage();
-        DataForTest data = new DataForTest();
+        BookData data = new BookData();
 
         booksSteps.deleteAllBookAPI();
         booksSteps.addBookAPI(data.isbn);

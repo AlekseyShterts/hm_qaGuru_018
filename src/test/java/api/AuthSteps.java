@@ -2,7 +2,6 @@ package api;
 
 
 import com.codeborne.selenide.WebDriverRunner;
-import data.DataForTest;
 import io.qameta.allure.Step;
 import org.openqa.selenium.Cookie;
 import models.AuthBodyModel;
