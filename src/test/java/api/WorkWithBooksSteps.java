@@ -1,6 +1,6 @@
-package tests.steps;
+package api;
 
-import data.DataTest;
+import data.DataForTest;
 import io.qameta.allure.Step;
 import models.AddBookBodyModel;
 
@@ -10,7 +10,6 @@ import static specs.BookShopSpecs.*;
 
 public class WorkWithBooksSteps {
 
-    DataTest data = new DataTest();
     String token = AuthSteps.extractValueFromCookieString("token");
     AddBookBodyModel bookData = new AddBookBodyModel();
     String userID = AuthSteps.extractValueFromCookieString("userID");

@@ -1,11 +1,11 @@
 package tests;
 
-import data.DataTest;
+import data.DataForTest;
 import helpers.WithLogin;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.Test;
 import pages.ProfilePage;
-import tests.steps.WorkWithBooksSteps;
+import api.WorkWithBooksSteps;
 
 public class DeleteBookTest extends BaseTest {
 
@@ -16,13 +16,13 @@ public class DeleteBookTest extends BaseTest {
     void addedDeletedItemTest() {
         WorkWithBooksSteps booksSteps = new WorkWithBooksSteps();
         ProfilePage page = new ProfilePage();
-        DataTest data = new DataTest();
+        DataForTest data = new DataForTest();
 
         booksSteps.deleteAllBookAPI();
         booksSteps.addBookAPI(data.isbn);
         page.openPageUI();
         page.checkUserNameUI();
-        page.checkAddedBookUI();
+        page.checkAddedBookUI("Addy Osmani");
         page.deleteBookUI();
         page.checkProfileIsEmptyUI();
 

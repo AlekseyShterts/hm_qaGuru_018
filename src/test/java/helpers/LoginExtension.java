@@ -1,6 +1,6 @@
 package helpers;
 
-import tests.steps.AuthSteps;
+import api.AuthSteps;
 import org.junit.jupiter.api.extension.BeforeEachCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
 

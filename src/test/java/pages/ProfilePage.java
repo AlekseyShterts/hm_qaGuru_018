@@ -1,20 +1,19 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
-import data.DataTest;
+import data.DataForTest;
 import io.qameta.allure.Step;
 
-import static com.codeborne.selenide.Condition.empty;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 public class ProfilePage {
-    private SelenideElement emptyList = $(".rt-noData"),
-            userName = $("#userName-value"),
-            tableItem = $(".rt-tbody"),
-            deleteButton = $("#delete-record-undefined"),
-            okButton = $("#closeSmallModal-ok");
+    private SelenideElement emptyList = $(".rt-noData");
+    private SelenideElement userName = $("#userName-value");
+    private SelenideElement tableItem = $(".rt-tbody");
+    private SelenideElement deleteButton = $("#delete-record-undefined");
+    private SelenideElement okButton = $("#closeSmallModal-ok");
 
 
 
@@ -26,8 +25,7 @@ public class ProfilePage {
 
     @Step("проверка отображения User Name в UI")
     public ProfilePage checkUserNameUI() {
-        DataTest data = new DataTest();
-        userName.shouldBe(text(data.login));
+        userName.shouldBe(text(System.getProperty("login")));
         return this;
     }
 
@@ -38,8 +36,8 @@ public class ProfilePage {
     }
 
     @Step("проверка наличия книг в UI")
-    public void  checkAddedBookUI() {
-        tableItem.shouldHave(text("Addy Osmani"));
+    public void checkAddedBookUI(String value) {
+        tableItem.shouldHave(text(value));
     }
 
     @Step("Удаление книги из списка")

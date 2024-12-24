@@ -1,8 +1,8 @@
-package tests.steps;
+package api;
 
 
 import com.codeborne.selenide.WebDriverRunner;
-import data.DataTest;
+import data.DataForTest;
 import io.qameta.allure.Step;
 import org.openqa.selenium.Cookie;
 import models.AuthBodyModel;
@@ -19,9 +19,8 @@ public class AuthSteps extends BaseTest {
     @Step("Получаем данные для авторизации")
     public static AuthResposeModel getResponse() {
         AuthBodyModel authData = new AuthBodyModel();
-        DataTest acc = new DataTest();
-        authData.setUserName(acc.login);
-        authData.setPassword(acc.password);
+        authData.setUserName(System.getProperty("login"));
+        authData.setPassword(System.getProperty("password"));
 
 
         return given(requestSpecification)
