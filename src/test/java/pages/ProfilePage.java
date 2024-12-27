@@ -23,8 +23,8 @@ public class ProfilePage {
     }
 
     @Step("проверка отображения User Name в UI")
-    public ProfilePage checkUserNameUI() {
-        userName.shouldBe(text(System.getProperty("login")));
+    public ProfilePage checkUserNameUI(String value) {
+        userName.shouldBe(text(value));
         return this;
     }
 

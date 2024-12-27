@@ -14,9 +14,9 @@ import java.util.Map;
 
 public class BaseTest {
 
+
     @BeforeAll
     public static void setUp() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
         RestAssured.baseURI = "https://demoqa.com/";
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
